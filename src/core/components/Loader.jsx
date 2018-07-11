@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Colors } from 'core/utils';
+import { Colors } from '../utils';
 
 const style = {
   loader: {

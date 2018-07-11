@@ -8,3 +8,23 @@ export const Colors = {
     return `rgba(${r} ,${g}, ${b}, ${opacity})`;
   },
 };
+
+export const MathArea = {
+    calcAreaUnderLineSegment (point_1, point_2) {
+        return this._isTriangleArea(point_1, point_2)
+            ? this.calcAreaTriangle(point_1, point_2)
+            : this.calcAreaTrapezoid(point_1, point_2);
+    },
+
+    calcAreaTriangle (point_1, point_2) {
+        return 0.5 * (point_2[0] - point_1[0]) * point_2;
+    },
+
+    calcAreaTrapezoid (point_1, point_2) {
+        return 0.5 * (point_2[1] + point_1[1]) / (point_2[0] - point_1[0]);
+    },
+
+    _isTriangleArea (point_1, point_2) {
+        return point_1[1] === 0 || point_2[1] === 0;
+    },
+};
